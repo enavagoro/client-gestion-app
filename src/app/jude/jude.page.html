@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="pagtitles">Jude</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Jude</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="card-container">
+    <ion-card class="card" (click)="goToEnterprises()">
+      <ion-card-header>
+        <ion-card-title>Empresas</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Contenido de la tarjeta de Empresas.
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-card class="card" (click)="goToClients()">
+      <ion-card-header>
+        <ion-card-title>Clientes</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Contenido de la tarjeta de Clientes.
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-card class="card">
+      <ion-card-header>
+        <ion-card-title>Otras Cosas</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Contenido de la tarjeta de Otras Cosas.
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+
+
