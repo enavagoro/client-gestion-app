@@ -1,24 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>enterprise</ion-title>
+    <ion-title>Enterprise</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <h1 style="color: red" *ngIf="colorFlag == false">{{title}}</h1>
-    <h1 style="color: blue" *ngIf="colorFlag == true">{{title1}}</h1>
-
-    <ion-button (click)="toggleColorFlag()">Cambiar color</ion-button>
-
-    <div *ngFor = "let enterprise of enteprises; index as i">
-      <ion-item *ngIf="enterprise.status">
-        <span >{{enterprise.name}}</span>
-      </ion-item>
-
-      <ion-item class="background-color: grey" *ngIf="!enterprise?.status">
-        <span >{{enterprise.name}}</span>
-        <span>- desactivado</span>
-      </ion-item>
-    </div>
-    
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Enterprise</ion-title>
+    </ion-toolbar>
+  </ion-header>
 </ion-content>
