@@ -7,13 +7,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./jude.page.scss'],
 })
 export class JudePage implements OnInit {
+  cards = [
+            {name:'Empresas', content:'Empresas de jude', url:'/enterprise'},
+            {name:'Clientes', content:'Clientes de juge', url:'/client'}
+          ]
 
-  constructor(private router:Router) { }
-  goToEnterprises(){
-    this.router.navigate(['/enterprise'])
+  constructor(private router:Router) { 
+
   }
-  goToClients(){
-    this.router.navigate(['/client'])
+  
+  goTo(route: string){
+    this.router.navigate([route])
   }
 
   ngOnInit() {
