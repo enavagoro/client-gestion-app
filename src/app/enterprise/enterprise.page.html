@@ -10,4 +10,28 @@
       <ion-title size="large">Enterprise</ion-title>
     </ion-toolbar>
   </ion-header>
+
+
+
+  <div class="data-container">
+    <div style="margin-top:20px; border-bottom: 1px solid #EFF3FB; cursor: pointer;" *ngFor="let enterprise of enterprises">
+      <ion-item class="item-options" lines="none">
+        <ion-avatar>
+          <img src="https://avatars.githubusercontent.com/u/52795648?v=4">
+        </ion-avatar>
+        <ion-label style="margin-left: 20px;"><b>{{enterprise.name}}</b></ion-label>
+        <ion-buttons slot="end">
+          <ion-button>
+            <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+      <div style=" padding-bottom: 10px;">
+        <ion-chip style="margin-left: 15px;">
+          <ion-icon name="cash-outline"></ion-icon>
+          <ion-label><b>PaymentStatus</b>: {{getPaymentStatus(enterprise.paymentStatus)}}</ion-label>
+        </ion-chip>
+      </div>
+    </div>
+  </div>
 </ion-content>
