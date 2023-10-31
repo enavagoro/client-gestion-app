@@ -11,9 +11,61 @@
     </ion-toolbar>
   </ion-header>
 
-
-
   <div class="data-container">
+    <ion-toolbar class="ion-toolbar">
+      <ion-searchbar class="custom" placeholder="Buscar" (ionInput)="setSearch($event)"></ion-searchbar>
+    </ion-toolbar>
+
+    <div>
+      <ion-item>
+        <b>Busqueda Actual:</b> &nbsp; {{currentSearchTerm}}
+        <ion-buttons *ngIf="currentSearchTerm">
+          <ion-button (click)="clearSearchTerm()">
+            <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </div>
+
+    <div>
+      <span *ngFor="let optionButton of optionButtons; index as i">
+        <ion-chip color="primary" *ngIf="i == selectedButtonIndex">
+          <ion-icon [name]="optionButton.icon"></ion-icon>
+          <ion-label>{{optionButton.text}}</ion-label>
+          <p><b>{{i}}</b></p>
+        </ion-chip>
+
+        <ion-chip *ngIf="i != selectedButtonIndex" (click)="selectOption(optionButton, i)">
+          <ion-icon [name]="optionButton.icon"></ion-icon>
+          <ion-label>{{optionButton.text}}</ion-label>
+          <p><b>{{i}}</b></p>
+        </ion-chip>
+      </span>
+    </div>
+
+    <ion-item>
+      <div *ngIf="selectedButtonIndex == 1">
+        <ion-checkbox [(ngModel)]="listStatus">
+          <span *ngIf="listStatus">Empresas Activadas</span>
+          <span *ngIf="!listStatus">Empresas Desactivadas</span>
+        </ion-checkbox>
+     </div>
+
+      <div *ngIf="selectedButtonIndex == 2">
+        <h1>payment status</h1>
+     </div>
+
+     <div *ngIf="selectedButtonIndex == 3">
+      <h1>expirados</h1>
+     </div>
+
+     <div *ngIf="selectedButtonIndex == 4">
+      <h1>dias cerca</h1>
+     </div>
+
+     <ion-button slot="end" (click)="selectFilterOption()">Filtrar</ion-button>
+    </ion-item>
+
     <div style="margin-top:20px; border-bottom: 1px solid #EFF3FB; cursor: pointer;" *ngFor="let enterprise of enterprises">
       <ion-item class="item-options" lines="none">
         <ion-avatar>
